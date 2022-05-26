@@ -30,6 +30,7 @@
   width: 100%;
   height: 100vh;
   z-index: 10;
+  overflow-y: scroll;
 }
 
 .popup-container {
@@ -373,7 +374,7 @@ h1 {
   .header-box {
     display: flex;
     justify-content: space-between;
-    width: 1200px;
+    max-width: 1200px;
     padding: 28px 17px 0px 17px;
     margin-right: auto;
     margin-left: auto;
@@ -765,7 +766,7 @@ h1 {
 
 @media (min-width: 1200px) {
   .main-container {
-    width: 1200px;
+    max-width: 1200px;
     margin-top: 63px;
     margin-right: auto;
     margin-left: auto;
@@ -786,23 +787,13 @@ h1 {
   }
 }
 
-@media (min-width: 1200px) {
-  .post-box {
-    display: flex;
-    justify-content: space-between;
-  }
+.post-box {
+  display: flex;
 }
 
-@media (min-width: 641px) and (max-width: 1199px) {
-  .post-box {
-    display: flex;
-    width: 100%;
-  }
-}
 
 @media (max-width: 640px) {
   .post-box {
-    display: flex;
     flex-direction: column;
     width: 100%;
   }
@@ -810,13 +801,13 @@ h1 {
 
 @media (min-width: 1200px) {
   .post {
-    width: 780px;
+    width: 775px;
   }
 }
 
 @media (min-width: 641px) and (max-width: 1199px) {
   .post {
-    max-width: 780px;
+    max-width: 775px;
   }
 }
 
@@ -1006,23 +997,21 @@ h1 {
 
 @media (min-width: 1200px) {
   .sidebar {
-    width: 270px;
-    display: block;
+    max-width: 270px;
+    margin-left: 125px;
   }
 }
 
 @media (min-width: 641px) and (max-width: 1199px) {
   .sidebar {
-    width: 270px;
-    display: block;
+    max-width: 270px;
     margin-left: 35px;
   }
 }
 
 @media (max-width: 640px) {
   .sidebar {
-    width: 100%;
-    display: block;
+    min-width: 100%;
   }
 }
 
@@ -1087,19 +1076,14 @@ h1 {
 /* NEW POST END */
 /* SEARCH START*/
 
-@media (min-width: 641px) {
-  .search-form {
-    display: flex;
-    margin-top: 60px;
-    margin-bottom: 60px;
-  }
+.search-form {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  display: flex;
 }
 
-@media (max-width: 640px) {
-  .search-form {
-    display: flex;
-    margin-top: 60px;
-  }
+.search-label {
+  flex-grow: 1;
 }
 
 .search-text {
@@ -1112,28 +1096,13 @@ h1 {
 .search-aria {
   -webkit-appearance: none;
   -moz-appearance: none;
+  min-width: 100%;
   border: none;
   height: 48px;
   background-color: #f4f7f6;
-  padding: 15px 20px 15px 20px;
+  padding: 0 18px;
   font-size: 13px;
   color: #000000;
-}
-
-@media (min-width: 641px) {
-
-  .search-label,
-  .search-aria {
-    width: 222px;
-  }
-}
-
-@media (max-width: 640px) {
-
-  .search-label,
-  .search-aria {
-    width: 100%;
-  }
 }
 
 .search-aria:focus {
@@ -1145,13 +1114,9 @@ h1 {
 .button-search {
   width: 48px;
   height: 48px;
+  padding-right: 48px;
   border: none;
-  background-color: #b59f5b;
-}
-
-.button-search-icon {
-  width: 18px;
-  height: auto;
+  background: url(../svg/search.svg) center/16px no-repeat #b59f5b;
 }
 
 .button-search:hover {
@@ -1159,10 +1124,14 @@ h1 {
 }
 
 .button-search-text {
+  position: absolute;
   width: 1px;
   height: 1px;
-  clip: rect(1px, 1px, 1px, 1px);
-  position: absolute;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /* SEARCH END */
@@ -1295,10 +1264,16 @@ h1 {
   padding-left: 20px;
 }
 
-@media (min-width: 641px) {
+@media (min-width: 1200px) {
   .products {
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1199px) {
+  .products {
+    flex-wrap: wrap;
   }
 }
 
@@ -1321,7 +1296,11 @@ h1 {
 
 @media (min-width: 641px) and (max-width: 1199px) {
   .product {
-    width: 45%;
+    width: 43%;
+  }
+
+  .product:nth-child(odd) {
+    margin-right: 68px;
   }
 
   .product:nth-child(n + 3) {
